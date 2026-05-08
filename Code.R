@@ -1,8 +1,10 @@
-
 library(ComplexHeatmap)
 library(circlize)
 
-mat = readRDS("measles.rds")
+# Read CSV and convert to matrix
+df = read.csv("measles.csv", row.names = 1, check.names = FALSE)
+mat = as.matrix(df)
+
 ha1 = HeatmapAnnotation(
     dist1 = anno_barplot(
         colSums(mat), 
